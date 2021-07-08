@@ -1,0 +1,29 @@
+.now {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  
+  &__temp {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__number {
+    font-size: 80px;
+  }
+
+  &__degree {
+    font-size: 20px;
+    margin: 12% 0%;
+  }
+
+  &__city {
+    font-size: 20px;
+  }
+
+  &__date {
+    
+  }
+}
