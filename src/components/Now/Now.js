@@ -8,17 +8,14 @@ function getDate() {
 }
 
 const round = (temp) => {
-  return Math.round(temp);
+  return Math.round(temp - 273.15);
 };
 
 function Now(props) {
   return (
     <div className="now">
       <div className="now__main">{props.main}</div>
-      <div className="now__temp">
-        <div className="now__number">{round(props.temp)}</div>
-        <sup className="now__degree">°C</sup>
-      </div>
+      <div className="now__temp">{round(props.temp)}</div>
       <div className="now__city">{props.name}</div>
       <div className="now__date">{getDate()}</div>
     </div>

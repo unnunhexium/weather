@@ -1,16 +1,52 @@
 .city-selector {
-  justify-content: center;
+  display: flex;
+  justify-content: flex-end;
 
- &__header {
+  &__search {
+    opacity: 0%;
+    margin: 26px 10px 0 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
 
- }
+    img {
+      filter: invert(1);
+    }
+  }
 
- &__button {
-   
- }
+  &__search--open {
+    opacity: 100%;
+  }
 
- &__input {
-   
- }
+  &__input-wrapper {
+    position: absolute;
+    margin: 30px 10px 0 0;
+    transform: translateX(103%);
+    opacity: 0%;
+    transition: transform 0.2s, opacity 0.2s;
+  }
 
+  &__input-wrapper--open {
+    opacity: 100%;
+    transform: translateX(0%);
+  }
+
+  &__button {
+    height: 24px;
+    border: none;
+    cursor: pointer;
+    background-color: lightgrey;
+    color: white;
+    border-radius: 3px;
+  }
+
+  &__input {
+    height: 24px;
+    border: none;
+    border-radius: 3px;
+    &::placeholder {
+      color: lightgray;
+    }
+  }
 }

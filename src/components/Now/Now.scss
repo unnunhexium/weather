@@ -4,26 +4,34 @@
   justify-content: center;
   align-items: center;
   height: 50%;
-  
+
+  &__main {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 300;
+  }
+
   &__temp {
-    display: flex;
-    flex-direction: row;
-  }
-
-  &__number {
+    position: relative;
     font-size: 80px;
-  }
-
-  &__degree {
-    font-size: 20px;
-    margin: 12% 0%;
+    font-weight: 400;
+    margin: 15px 0 15px 0;
+    &::after {
+      position: absolute;
+      content: "°C";
+      font-size: 20px;
+      top: 10px;
+    }
   }
 
   &__city {
+    letter-spacing: 1.5px;
     font-size: 20px;
+    font-weight: 400;
+    margin: 0 0 5px 0;
   }
 
   &__date {
-    
+    font-weight: 200;
   }
 }
