@@ -23,7 +23,7 @@ export const fetchDataByCoords = async (latitude, longtitude) => {
 
 export const getForecastByCity = async (city) => {
   const response = await axios.get(
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
       city +
       "&appid=" +
       API_KEY
@@ -34,7 +34,7 @@ export const getForecastByCity = async (city) => {
 
 export const getForecastByCoords = async (latitude, longtitude) => {
   const response = await axios.get(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longtitude}&appid=${API_KEY}`
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longtitude}&appid=${API_KEY}`
   );
   return response.data;
 };

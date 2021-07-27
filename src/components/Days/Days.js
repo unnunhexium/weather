@@ -1,28 +1,20 @@
 import Day from "../Day/Day";
 import "./Days.scss";
 
-function Days() {
+const sliceArray = (arr) => {
+  const newArr = [];
+  for (let i = 0; i < 5; i++) {
+    newArr.push(arr.slice(i * 8, (i + 1) * 8));
+  }
+  return newArr;
+};
+
+function Days(props) {
   return (
     <div className="days">
-      <Day
-        dt={1602104400 * 1000}
-        temp_min="22"
-        temp_max="24"
-        main="Clear"
-        icon="01d"
-      />
-      <Day />
-      <Day />
-      <Day
-        dt={1602104400 * 1000}
-        temp_min="22"
-        temp_max="24"
-        main="Clear"
-        icon="01d"
-      />
-      <Day />
-      <Day />
-      <Day />
+      {/* {props.forecast.list.map((weather) => (
+        <Day />
+      ))} */}
     </div>
   );
 }

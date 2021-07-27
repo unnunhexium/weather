@@ -4,17 +4,23 @@ import Days from "./components/Days/Days";
 import Diagram from "./components/Diagram/Diagram";
 import CitySelector from "./components/CitySelector/CitySelector";
 import "./App.scss";
-import { fetchDataByCity, fetchDataByCoords } from "./apis/config";
+import {
+  fetchDataByCity,
+  fetchDataByCoords,
+  getForecastByCoords,
+  getForecastByCity,
+  getHourlyByCoords
+} from "./apis/config";
 
 export const axiosConfig = {
   headers: {
-    "Content-Type": "application/json",
-  },
+    "Content-Type": "application/json"
+  }
 };
 
 function App() {
   const [data, setData] = useState([]);
-  // const [city, setCity] = useState("");
+  const [forecast, setForecast] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
 
@@ -31,11 +37,20 @@ function App() {
     });
   };
 
+  const getForecastByCity = (city) => {
+    getForecastByCity(city).then((res) => {
+      setData(res);
+    });
+  };
+
   useEffect(() => {
     getPosition();
     if (latitude) {
       fetchDataByCoords(latitude, longitude).then((res) => {
         setData(res);
+      });
+      getForecastByCoords(latitude, longitude).then((res) => {
+        setForecast(res);
       });
     }
   }, [latitude]);
@@ -52,7 +67,7 @@ function App() {
           temp={data.main.temp}
           name={data.name}
         />
-        <Days />
+        <Days forecast={forecast} className="app__days" />
         <Diagram />
       </div>
     );
