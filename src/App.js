@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import Now from "./components/Now/Now";
-import Days from "./components/Days/Days";
-import Diagram from "./components/Diagram/Diagram";
 import CitySelector from "./components/CitySelector/CitySelector";
 import "./App.scss";
 import {
@@ -9,13 +7,13 @@ import {
   fetchDataByCoords,
   getForecastByCoords,
   getForecastByCity,
-  getHourlyByCoords
+  getHourlyByCoords,
 } from "./apis/config";
 
 export const axiosConfig = {
   headers: {
-    "Content-Type": "application/json"
-  }
+    "Content-Type": "application/json",
+  },
 };
 
 function App() {
@@ -67,8 +65,6 @@ function App() {
           temp={data.main.temp}
           name={data.name}
         />
-        <Days forecast={forecast} className="app__days" />
-        <Diagram />
       </div>
     );
   } else return <div className="app__loading">Loading...</div>;
