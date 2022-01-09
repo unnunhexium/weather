@@ -16,7 +16,7 @@
   }
 
   &__search--open {
-    opacity: 100%;
+    opacity: 1;
   }
 
   &__input-wrapper {
@@ -28,7 +28,7 @@
   }
 
   &__input-wrapper--open {
-    opacity: 100%;
+    opacity: 1;
     transform: translateX(0%);
   }
 
