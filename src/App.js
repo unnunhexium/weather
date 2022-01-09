@@ -2,13 +2,7 @@ import { useState, useEffect } from "react";
 import Now from "./components/Now/Now";
 import CitySelector from "./components/CitySelector/CitySelector";
 import "./App.scss";
-import {
-  fetchDataByCity,
-  fetchDataByCoords,
-  getForecastByCoords,
-  getForecastByCity,
-  getHourlyByCoords,
-} from "./apis/config";
+import { fetchDataByCity, fetchDataByCoords } from "./apis/config";
 
 export const axiosConfig = {
   headers: {
@@ -18,7 +12,6 @@ export const axiosConfig = {
 
 function App() {
   const [data, setData] = useState([]);
-  const [forecast, setForecast] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
 
@@ -35,23 +28,14 @@ function App() {
     });
   };
 
-  const getForecastByCity = (city) => {
-    getForecastByCity(city).then((res) => {
-      setData(res);
-    });
-  };
-
   useEffect(() => {
     getPosition();
     if (latitude) {
       fetchDataByCoords(latitude, longitude).then((res) => {
         setData(res);
       });
-      getForecastByCoords(latitude, longitude).then((res) => {
-        setForecast(res);
-      });
     }
-  }, [latitude]);
+  }, [latitude, longitude]);
 
   if (data.main) {
     return (
