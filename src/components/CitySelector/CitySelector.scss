@@ -12,6 +12,7 @@
 
     img {
       filter: invert(1);
+      height: 40px;
     }
   }
 
@@ -33,7 +34,7 @@
   }
 
   &__button {
-    height: 24px;
+    height: 30px;
     border: none;
     cursor: pointer;
     background-color: lightgrey;
@@ -42,7 +43,7 @@
   }
 
   &__input {
-    height: 24px;
+    height: 30px;
     border: none;
     border-radius: 3px;
     &::placeholder {
