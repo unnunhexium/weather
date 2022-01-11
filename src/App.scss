@@ -5,6 +5,7 @@ $primary-color: white;
 
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -17,14 +18,15 @@ body {
   width: 100%;
   font: 100% $font-stack;
   color: $primary-color;
-  font-size: &__loading {
+
+  &__loading {
     background-color: #b0e0e6;
     height: 100vh;
     font: 100% $font-stack;
     color: $primary-color;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-}
-
-* {
-  box-sizing: border-box;
 }
